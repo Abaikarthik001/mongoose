@@ -1,9 +1,10 @@
 const express = require('express');
 const ConnectDB = require('./connection');
 const User = require('./User');
+const cors = require('cors');
 const app = express();
 app.use(express.json())
-
+app.use(cors())
 app.get('/select',async (req,res)=>{
     const data = await User.find();
     res.json(data);
